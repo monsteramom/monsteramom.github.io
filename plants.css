@@ -1986,3 +1986,169 @@ img {
 .pswp--open {
     display: none !important; /* Hide if accidentally triggered */
 }
+
+/* Sale Price Styles */
+.plant-prices {
+    position: relative;
+    padding: var(--space-8) var(--space-20) 0;
+    margin: var(--space-10) 0;
+}
+
+.price-original {
+    display: block;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    text-decoration: line-through;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-2);
+}
+
+.price-sale {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.sale-badge {
+    position: absolute;
+    top: 0;
+    right: var(--space-4);
+    background: var(--color-error);
+    color: white;
+    padding: var(--space-2) var(--space-8);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Position badge over image for plant cards */
+.plant-card .sale-badge {
+    top: -20px;
+    right: var(--space-12);
+    z-index: 2;
+    box-shadow: var(--shadow-sm);
+}
+
+/* === CARE PAGE STYLES === */
+.care-plant-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-32);
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+    .care-plant-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+    }
+
+.care-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-16);
+    padding: var(--space-24);
+    border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+.care-plant-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.care-info h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-8);
+    color: var(--color-text);
+}
+
+.care-tags {
+    display: flex;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+}
+
+.care-tabs {
+    display: flex;
+    gap: var(--space-4);
+    padding: 0 var(--space-24);
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+}
+
+.care-content {
+    padding: var(--space-24);
+}
+
+.care-image-placeholder {
+    width: 100%;
+    height: 200px;
+    margin-bottom: var(--space-16);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--color-border);
+}
+
+.care-guide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.care-text h4 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-12);
+    color: var(--color-text);
+}
+
+.tab-content {
+    display: none;
+}
+
+    .tab-content.active {
+        display: block;
+    }
+
+.tab-button {
+    padding: var(--space-12) var(--space-20);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    transition: all var(--duration-fast);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+    .tab-button:hover,
+    .tab-button.active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+    }
+
+@media (max-width: 768px) {
+    .care-header {
+        grid-template-columns: 1fr;
+        gap: var(--space-16);
+    }
+
+    .care-tabs {
+        flex-wrap: wrap;
+        padding: 0 var(--space-16);
+    }
+}
