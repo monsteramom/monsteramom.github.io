@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Monstera Mom</title>
+    <link rel="stylesheet" href="plants.css">
+</head>
+<body>
+    <!-- NAVIGATION (same as before) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Monstera Mom Logo" class="logo" onerror="this.style.display='none'">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="care.html" class="nav-link">Care</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB (same) -->
+    <div class="container" style="padding: 16px 0; font-size: 0.9rem; color: var(--color-text-secondary); border-bottom: 1px solid var(--color-border);">
+        <a href="index.html" style="color: var(--color-primary); text-decoration: none;">Home</a>
+        <span> › </span>
+        <span>Blog</span>
+    </div>
+
+    <!-- TITLE (same) -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title" style="text-align: center; margin-bottom: var(--space-8);">Plant Care Blog</h1>
+            <p style="text-align: center; font-size: var(--font-size-xl); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+                Tips, tricks, and plant parenting advice from Monstera Mom
+            </p>
+        </div>
+    </section>
+
+    <!-- BLOG POSTS -->
+    <section class="section plants-section">
+        <div class="container">
+
+            <!-- POST 1: Multiple Images Option -->
+            <article class="blog-card" data-post="1">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-tag">Monstera</span>
+                        <span class="blog-tag">Personal</span>
+                        <span class="blog-readtime">1 min read</span>
+                        <div class="blog-date">Dec 29, 2025</div>
+                    </div>
+                    <h3 class="blog-title">From Two Tiny Leaves to a Home Full of Green 🌱</h3>
+                    <p class="blog-excerpt">
+                        This is the story of how our love for plants grew into something bigger, a belief that no house truly becomes a home without a little green life inside.
+                    </p>
+                    <div class="blog-full-content" id="post1-full">
+                        <p>
+                            It all started with this monstera 🌱 <br> <br>
+                            <img src="assets/blogs/blog1.jpg" alt="Monstera leaves" class="blog-inline-image popup-img">
+
+                            It was just a little plant with only two tiny leaves. I was new to the plant world. <br> <br>
+
+                            And then, I do not know how, but after a couple of months I found myself surrounded by a room full of various kinds of houseplants 🪴 <br> <br>
+
+                            My husband also caught the plant fever from me 😄 <br> <br> And we have a 6-month-old who loves to hold every plant leaf he can reach 👶🍃 <br> <br>
+
+                            We decided to take our love to the next level. <br> <br> To share our love with other people, with other homes. <br> <br> Because we believe no house becomes a home without a plant 💚 <br>
+                        </p>
+
+
+                    </div>
+                    <button class="blog-toggle" onclick="toggleBlogPost('1')">See More</button>
+                </div>
+                <div class="blog-image">
+                    <img src="assets/blogs/blog1.jpg" alt="Monstera leaves" class="blog-inline-image popup-img">
+                </div>
+            </article>
+
+
+            <!-- POST 2: Short Post -->
+            <article class="blog-card" data-post="2">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-tag">Business Card</span>
+                        <span class="blog-tag">Personal</span>
+                        <span class="blog-readtime">1 min read</span>
+                        <div class="blog-date">Dec 20, 2025</div>
+                    </div>
+                    <h3 class="blog-title">Business Card</h3>
+                    <p class="blog-excerpt">
+                        Monstera Mom: Magic in every leaf.
+                    </p>
+                    <div class="blog-full-content" id="post2-full">
+                        <!-- <button class="blog-toggle expanded" onclick="toggleBlogPost('2')">See Less</button> -->
+                        <img src="assets/blogs/blog0 (1).png" alt="Monstera leaves" class="blog-inline-image popup-img">
+                        <img src="assets/blogs/blog0 (2).png" alt="Monstera leaves" class="blog-inline-image popup-img">
+
+                    </div>
+                    <button class="blog-toggle" onclick="toggleBlogPost('2')">See More</button>
+                </div>
+                    <div class="blog-image">
+                        <img src="assets/blogs/blog0 (2).png" alt="Business Card" class="blog-inline-image popup-img">
+                    </div>
+                
+            </article>
+
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: var(--space-16)">Get In Touch</h2>
+            <p class="contact-subtitle">Ready to order? Have questions? We'd love to hear from you!</p>
+            <div class="contact-grid">
+                <!-- Add your 4 contact cards from index.html here -->
+                <div class="contact-card">
+                    <div class="contact-icon">🟠</div>
+                    <h3>Instagram</h3>
+                    <p>Follow us for tips and updates</p>
+                    <a href="https://instagram.com/monstera.mom25" class="contact-link" target="_blank">@monstera.mom25</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">ⓕ</div>
+                    <h3>Facebook</h3>
+                    <p>Connect with our plant community</p>
+                    <a href="https://facebook.com/monsteramom25" class="contact-link" target="_blank">Monstera Mom</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p>Call us during business hours</p>
+                    <a href="tel:+19024781746" class="contact-link">+1 (902) 478-1746</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Pickup Location</h3>
+                    <p>Visit us in person for pickup</p>
+                    <a href="https://maps.app.goo.gl/6CVKxyr7oPk4TdZ4A" class="contact-link" target="_blank">5885 Spring Garden Road <br> Halifax, Nova Scotia</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <script src="plants.js"></script>
+    <script>
+        function toggleBlogPost(postId) {
+            const fullContent = document.getElementById(`post${postId}-full`);
+            const toggleBtn = event.target;
+
+            if (fullContent.classList.contains('expanded')) {
+                fullContent.classList.remove('expanded');
+                toggleBtn.textContent = 'See More';
+                toggleBtn.classList.remove('expanded');
+            } else {
+                fullContent.classList.add('expanded');
+                toggleBtn.textContent = 'See Less';
+                toggleBtn.classList.add('expanded');
+            }
+        }
+
+        // Mobile menu (same)
+        document.addEventListener('DOMContentLoaded', function () {
+            // ... menu code
+        });
+    </script>
+
+    <div id="imgModal" class="img-modal" aria-hidden="true">
+        <span class="img-modal-close" id="imgModalClose">&times;</span>
+        <img class="img-modal-content" id="imgModalImg" alt="">
+    </div>
+
+    <script src="plants.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu (from previous fix)
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+            }
+
+            // Blog toggle function
+            function toggleBlogPost(postId) {
+                const fullContent = document.getElementById('post' + postId + '-full');
+                const toggleBtn = event.target;
+                if (fullContent.classList.contains('expanded')) {
+                    fullContent.classList.remove('expanded');
+                    toggleBtn.textContent = 'See More...';
+                    toggleBtn.classList.remove('expanded');
+                } else {
+                    fullContent.classList.add('expanded');
+                    toggleBtn.textContent = 'See Less';
+                    toggleBtn.classList.add('expanded');
+                }
+            }
+            window.toggleBlogPost = toggleBlogPost; // Make global for onclick
+
+            // IMAGE POPUP - FIXED
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('imgModalImg');
+            const closeBtn = document.getElementById('imgModalClose');
+
+            // Click image to open
+            document.addEventListener('click', function (e) {
+                const img = e.target.closest('.popup-img');
+                if (!img) return;
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modal.setAttribute('aria-hidden', 'false');
+            });
+
+            // Close functions
+            function closeModal() {
+                modal.style.display = 'none';
+                modalImg.src = '';
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        });
+    </script>
+
+
+</body>
+</html>
