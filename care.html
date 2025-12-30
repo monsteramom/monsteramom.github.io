@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Care Guide - Monstera Mom</title>
+    <link rel="stylesheet" href="plants.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="Monstera Mom Logo" class="logo" onerror="this.style.display='none'">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="care.html" class="nav-link active">Care</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="container" style="padding: 16px 0; font-size: 0.9rem; color: var(--color-text-secondary); border-bottom: 1px solid var(--color-border);">
+        <a href="index.html" style="color: var(--color-primary); text-decoration: none;">Home</a>
+        <span> › </span>
+        <span>Care Guide</span>
+    </div>
+
+    <!-- SIMPLE TITLE SECTION -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title" style="text-align: center; margin-bottom: var(--space-8);">Plant Care Guide</h1>
+            <p style="text-align: center; font-size: var(--font-size-xl); color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+                Expert care instructions for all your Monstera Mom plants
+            </p>
+        </div>
+    </section>
+
+    <!-- CARE GUIDES SECTION -->
+    <section class="section plants-section">
+        <div class="container">
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="monstera-deliciosa">
+                <div class="care-summary" onclick="toggleCareDetails('monstera-deliciosa')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/monstera-deliciosa/1.jpg" alt="Monstera Deliciosa" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">Monstera Deliciosa</h3>
+                            <p class="care-description">
+                                A large tropical foliage plant with iconic split leaves (Swiss Cheese Plant). Native to Central America and commonly grown as a statement indoor plant.
+                            </p>
+                            <div class="care-toggle" id="monstera-deliciosa-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="monstera-deliciosa-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Water deeply only after the top 2 to 3 inches of soil have dried 💧 This plant prefers a wet–dry cycle rather than constant moisture 🚿 In winter or low light, reduce watering significantly to prevent root rot 🌿</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Grows best in bright indirect light ☀️ Can tolerate medium light but fenestration and leaf size will reduce 🌤️ Prolonged direct sun can scorch leaves 🌱</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Requires a chunky, fast-draining soil mix 🪴 An aroid mix with orchid bark, perlite, and coco coir works best 🌱 Roots need airflow to stay healthy 🧪</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Propagate using stem cuttings with at least one node ✂️ Roots easily in water, moss, or soil 💧 Warm temperatures speed rooting 🌱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="arrow-head">
+                <div class="care-summary" onclick="toggleCareDetails('arrow-head')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/arrow-head/1.jpg" alt="Arrow Head" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">Arrow Head</h3>
+                            <p class="care-description">
+                                A fast-growing vine with arrow-shaped leaves (Syngonium podophyllum). Adaptable and popular for indoor trailing displays.
+                            </p>
+                            <div class="care-toggle" id="arrow-head-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="arrow-head-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Keep soil lightly and evenly moist 💧 Allow the top inch to dry between watering 🚿 Reduce watering slightly in winter while avoiding full dry-out 🌿</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Prefers bright indirect light ☀️ Tolerates low light but leaf shape and color become less distinct 🌤️ Avoid direct sun 🌱</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Likes loose, well-draining soil that retains some moisture 🪴 Standard mix with added perlite works well 🌱 Soil should never compact 🧪</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Very easy to propagate from node cuttings ✂️ Roots well in both water and soil 💧 Regular pruning encourages bushy growth 🌱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="croton">
+                <div class="care-summary" onclick="toggleCareDetails('croton')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/croton/1.jpg" alt="Croton" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">Croton</h3>
+                            <p class="care-description">
+                                A bold ornamental plant with striking multicolored foliage (Codiaeum variegatum). Sensitive to stress and environmental changes.
+                            </p>
+                            <div class="care-toggle" id="croton-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="croton-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Water thoroughly once the top soil dries 💧 Never allow the root ball to dry completely 🚿 In winter, reduce frequency but keep moisture consistent 🌿</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Needs very bright light to maintain color ☀️ Can handle some direct sun indoors 🌤️ Low light causes dull leaves and drop 🌱</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Requires rich, well-draining soil 🪴 High-quality potting mix with added perlite is ideal 🌱 Excellent drainage is critical 🧪</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Propagated via semi-woody stem cuttings ✂️ Best done in warm, humid conditions 💧 Rooting hormone improves success 🌱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="pink-princess">
+                <div class="care-summary" onclick="toggleCareDetails('pink-princess')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/pink-princess/1.jpg" alt="Pink Princess" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">Pink Princess</h3>
+                            <p class="care-description">
+                                A variegated philodendron with pink splashes (Philodendron erubescens ‘Pink Princess’). Grown for contrast rather than speed.
+                            </p>
+                            <div class="care-toggle" id="pink-princess-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="pink-princess-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Water only after the top 2 inches of soil dry 💧 Overwatering leads quickly to root rot 🚿 In winter, watering should be minimal and controlled 🌿</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Requires bright indirect light ☀️ Insufficient light reduces pink variegation 🌤️ Direct sun can burn lighter leaf areas 🌱</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Prefers a chunky, fast-draining aroid mix 🪴 Bark, perlite, and coco coir are ideal 🌱 Roots need oxygen more than moisture 🧪</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Propagate using stem cuttings with a node ✂️ Variegation is genetic and not guaranteed 💧 Moss or water rooting works best 🌱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="swiss-cheese">
+                <div class="care-summary" onclick="toggleCareDetails('swiss-cheese')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/swiss-cheese/1.jpg" alt="Swiss Cheese Monstera" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">Swiss Cheese Monstera</h3>
+                            <p class="care-description">
+                                A smaller-leaf Monstera with oval holes (Monstera adansonii). Commonly grown as a trailing or climbing houseplant.
+                            </p>
+                            <div class="care-toggle" id="swiss-cheese-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="swiss-cheese-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Water when the top soil layer feels dry 💧 Slightly more forgiving than Monstera deliciosa 🚿 Reduce watering during winter dormancy 🌿</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Thrives in bright indirect light ☀️ Tolerates medium light well 🌤️ Direct sun can scorch thin leaves 🌱</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Needs light, airy soil 🪴 A mix with bark and perlite prevents compaction 🌱 Keeps roots oxygenated 🧪</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Propagates easily from stem cuttings ✂️ Roots quickly in water 💧 Transfers well to soil 🌱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="white-princess">
+                <div class="care-summary" onclick="toggleCareDetails('white-princess')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/white-princess/1.jpg" alt="White Princess" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">White Princess</h3>
+                            <p class="care-description">
+                                A variegated philodendron with white splashes. Grown for contrast rather than speed, with coloration dependent on strong light and stable care.
+                            </p>
+                            <div class="care-toggle" id="white-princess-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="white-princess-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Water when the top 30–40% of the soil has dried 🌱 Overwatering leads quickly to root rot 💧 Reduce watering in winter and allow longer dry periods 🍂</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Bright indirect light ☀️ Insufficient light reduces pink variegation 🎨 Avoid harsh direct sun, which can scorch lighter leaf areas 🚫</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Chunky, fast-draining aroid mix 🌿 Bark, perlite, and coco coir are ideal 🪵 Good airflow around roots is essential 🌬️</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Stem cuttings with at least one node ✂️ Variegation is genetic and not guaranteed 💧 Moss or water propagation works best 🌱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="burle-marx">
+                <div class="care-summary" onclick="toggleCareDetails('burle-marx')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/burle-marx/1.jpg" alt="Philodendron burle-marx" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">Philodendron Burle-marx</h3>
+                            <p class="care-description">
+                                A compact, crawling philodendron valued for its durability, tidy growth habit, and ease of care.
+                            </p>
+                            <div class="care-toggle" id="burle-marx-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="burle-marx-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Water when top 30–40% of soil has dried 🌱 More forgiving than Alocasia 💧 Avoid standing water 🚫</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Bright indirect light ☀️ Tolerates medium light but grows leggy 🌿</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Chunky, fast-draining aroid mix 🌱 Slightly more organic matter tolerated</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Stem cuttings with at least one node ✂️ Roots easily in water or moss 🌱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLANT 1 -->
+            <div class="care-plant-card" data-plant="splash">
+                <div class="care-summary" onclick="toggleCareDetails('splash')">
+                    <div class="care-header">
+                        <div class="care-plant-image">
+                            <img src="assets/plants/splash/1.jpg" alt="Alocasia Macrorrhiza Splash" class="care-hero-image">
+                        </div>
+                        <div class="care-info">
+                            <h3 class="care-name">Alocasia Macrorrhiza Splash</h3>
+                            <p class="care-description">
+                                A dramatic giant Alocasia with white splash variegation. Grown for bold foliage and contrast, but demanding and sensitive to care consistency.
+                            </p>
+                            <div class="care-toggle" id="splash-toggle">
+                                <span>See Details</span>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-details" id="splash-details">
+                    <div class="care-content">
+                        <div class="care-section">
+                            <h4>Watering</h4>
+                            <p>Keep soil evenly moist but never soggy 💧 Allow top 20–30% to dry 🌱 Extremely sensitive to overwatering and cold roots ❄️ Reduce watering slightly in winter</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Light</h4>
+                            <p>Bright indirect light ☀️ Can tolerate gentle morning sun 🌤 Low light reduces splash ❌</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Soil & Fertilizer</h4>
+                            <p>Very chunky, fast-draining aroid mix 🌱 Bark, perlite, coco chips ideal 🪵 Drainage is critical</p>
+                        </div>
+                        <div class="care-section">
+                            <h4>Propagation</h4>
+                            <p>Division or corm propagation 🌱 Variegation is genetic but not guaranteed 🎨</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: var(--space-16)">Get In Touch</h2>
+            <p class="contact-subtitle">Ready to order? Have questions? We'd love to hear from you!</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">🟠</div>
+                    <h3>Instagram</h3>
+                    <p>Follow us for tips and updates</p>
+                    <a href="https://instagram.com/monstera.mom25" class="contact-link" target="_blank">@monstera.mom25</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">ⓕ</div>
+                    <h3>Facebook</h3>
+                    <p>Connect with our plant community</p>
+                    <a href="https://facebook.com/monsteramom25" class="contact-link" target="_blank">Monstera Mom</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p>Call us during business hours</p>
+                    <a href="tel:+19024781746" class="contact-link">+1 (902) 478-1746</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Pickup Location</h3>
+                    <p>Visit us in person for pickup</p>
+                    <a href="https://maps.app.goo.gl/6CVKxyr7oPk4TdZ4A" class="contact-link" target="_blank">5885 Spring Garden Road <br> Halifax, Nova Scotia</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleCareDetails(plantName) {
+            const details = document.getElementById(plantName + '-details');
+            const icon = document.querySelector(`[data-plant="${plantName}"] .toggle-icon`);
+            const card = document.querySelector(`[data-plant="${plantName}"]`);
+
+            details.classList.toggle('expanded');
+            icon.textContent = details.classList.contains('expanded') ? '▲' : '▼';
+            card.classList.toggle('expanded');
+        }
+
+        // Mobile menu
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
