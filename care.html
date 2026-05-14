@@ -1,0 +1,767 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Care guides for Monstera Mom plants. Search by plant name or care level to find watering, light, soil, and propagation notes.">
+    <title>Plant Care Guide | Monstera Mom</title>
+    <link rel="stylesheet" href="plants.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" aria-label="Monstera Mom home">
+                <img src="assets/logo1.png" alt="Monstera Mom Logo" class="logo">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="care.html" class="nav-link active">Care</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero care-page-hero">
+            <div class="container page-hero-grid">
+                <div>
+                    <p class="section-kicker">Plant care library</p>
+                    <h1>Find the right rhythm for every plant.</h1>
+                    <p>Search by plant name or filter by care level to find watering, light, soil, and propagation notes.</p>
+                </div>
+                <div class="page-hero-card">
+                    <span>Quick Tip</span>
+                    <strong>Most aroids want airy soil first, water second.</strong>
+                    <p>When in doubt, check the top few inches of soil before watering.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section plants-section">
+            <div class="container">
+                <div class="care-controls">
+                    <label class="control-field control-field-wide">
+                        <span>Search care guide</span>
+                        <input type="search" id="careSearch" placeholder="Search by plant, water, light, soil, or propagation">
+                    </label>
+                    <div class="care-filter-row">
+                        <div class="care-level-chips" role="group" aria-label="Filter by care level">
+                            <button class="care-chip active" type="button" data-level="all">All</button>
+                            <button class="care-chip" type="button" data-level="easy">Easy</button>
+                            <button class="care-chip" type="button" data-level="moderate">Moderate</button>
+                            <button class="care-chip" type="button" data-level="collector">Collector</button>
+                        </div>
+                        <p class="care-count">– guides</p>
+                    </div>
+                </div>
+
+                <div class="care-list" id="careList">
+                    <article class="care-plant-card" data-plant="monstera-deliciosa" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('monstera-deliciosa')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/monstera-deliciosa/1.jpg" alt="Monstera Deliciosa" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Monstera Deliciosa</h2>
+                                    <p class="care-description">A statement foliage plant with iconic split leaves and an easy-to-read watering rhythm.</p>
+                                    <div class="care-toggle" id="monstera-deliciosa-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="monstera-deliciosa-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water deeply after the top 2 to 3 inches of soil dry. Reduce watering in winter or lower light.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light supports larger leaves and fenestration. Avoid harsh afternoon sun.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use a chunky aroid mix with bark, perlite, and coco coir so roots have airflow.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Take stem cuttings with at least one node. Root in water, moss, or soil in warm conditions.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="arrow-head" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('arrow-head')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/arrow-head/1.jpg" alt="Arrow Head" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Arrow Head</h2>
+                                    <p class="care-description">A fast-growing Syngonium that trails, climbs, and forgives small care mistakes.</p>
+                                    <div class="care-toggle" id="arrow-head-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="arrow-head-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Keep lightly moist and let the top inch dry. Do not leave the pot sitting in water.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is best, but it tolerates medium light better than many variegated plants.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use loose potting soil with added perlite for drainage and gentle moisture retention.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Cut below a node and root in water or soil. Pruning encourages a fuller plant.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="croton" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('croton')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/croton/1.jpg" alt="Croton" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Croton</h2>
+                                    <p class="care-description">A colorful foliage plant that rewards stable warmth, light, and consistent moisture.</p>
+                                    <div class="care-toggle" id="croton-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="croton-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top soil dries, but avoid letting the root ball fully dry out.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Very bright light keeps the leaves colorful. Low light often causes dull leaves and leaf drop.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use rich, well-draining potting mix with added perlite. Drainage is important.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Root semi-woody stem cuttings in warm humidity. Rooting hormone can help.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="pink-princess" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('pink-princess')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/pink-princess/1.jpg" alt="Pink Princess" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Pink Princess</h2>
+                                    <p class="care-description">A variegated philodendron grown for pink splashes and stable, careful care.</p>
+                                    <div class="care-toggle" id="pink-princess-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="pink-princess-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water after the top 2 inches dry. Avoid wet soil, especially in cooler rooms.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light helps hold variegation. Direct sun can burn pale leaf sections.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use a chunky aroid mix with bark, perlite, and coco coir for oxygen around roots.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Cuttings need a node. Variegation is genetic, so each new leaf can vary.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="swiss-cheese" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('swiss-cheese')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/swiss-cheese/1.jpg" alt="Swiss Cheese Monstera" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Swiss Cheese Monstera</h2>
+                                    <p class="care-description">A trailing or climbing Monstera with smaller leaves and charming oval holes.</p>
+                                    <div class="care-toggle" id="swiss-cheese-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="swiss-cheese-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top layer feels dry. It is slightly more forgiving than Monstera deliciosa.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is ideal, though medium light is usually tolerated.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Light, airy soil with bark and perlite prevents compacted roots.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings root quickly in water and transfer well to soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="white-princess" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('white-princess')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/white-princess/1.jpg" alt="White Princess" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">White Princess</h2>
+                                    <p class="care-description">A crisp variegated philodendron that needs bright light and steady watering choices.</p>
+                                    <div class="care-toggle" id="white-princess-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="white-princess-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top 30 to 40 percent of soil dries. Let it dry longer in winter.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light supports strong contrast. Avoid harsh direct sun.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Chunky, fast-draining aroid mix keeps the roots airy and healthy.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Use stem cuttings with a node. New growth may vary in variegation.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="burle-marx" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('burle-marx')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/burle-marx/1.jpg" alt="Philodendron Burle Marx" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Philodendron Burle Marx</h2>
+                                    <p class="care-description">A durable, compact philodendron with tidy growth and forgiving care.</p>
+                                    <div class="care-toggle" id="burle-marx-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="burle-marx-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top third of soil dries. Avoid standing water.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is best, but it tolerates medium light with slower growth.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Chunky aroid mix works well and can include slightly more organic matter.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings with a node root readily in water, moss, or soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="splash" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('splash')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/splash/1.jpg" alt="Alocasia Macrorrhiza Splash" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Alocasia Macrorrhiza Splash</h2>
+                                    <p class="care-description">A dramatic variegated Alocasia that wants consistency, warmth, and fast drainage.</p>
+                                    <div class="care-toggle" id="splash-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="splash-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Keep evenly moist but never soggy. Let the top 20 to 30 percent dry.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light and gentle morning sun are useful. Low light reduces variegation.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Very chunky, fast-draining mix with bark, perlite, and coco chips.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Propagate by division or corms. Variegation is genetic but not guaranteed.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="birkin" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('birkin')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/birkin/1.jpg" alt="Philodendron Birkin" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Philodendron Birkin</h2>
+                                    <p class="care-description">A compact philodendron with pinstripe leaves and simple care needs.</p>
+                                    <div class="care-toggle" id="birkin-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="birkin-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Allow the top 30 to 40 percent to dry. Avoid soggy soil.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light keeps striping stronger. Medium light is tolerated.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Chunky aroid mix with bark and perlite is ideal.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings root easily in water or moss.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="calathea" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('calathea')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/calathea/1.jpg" alt="Calathea White Fusion" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Calathea White Fusion</h2>
+                                    <p class="care-description">A beautiful but sensitive plant that prefers humidity, clean water, and no harsh sun.</p>
+                                    <div class="care-toggle" id="calathea-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="calathea-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Keep evenly moist, not soggy. Sensitive plants may prefer filtered or rested water.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Medium to bright indirect light. Direct sun can damage the pale sections.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use an airy mix that holds moisture without compacting.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Division only. Divide gently when the plant is actively growing.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="jose-buono" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('jose-buono')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/jose-buono/1.jpg" alt="Philodendron Jose Buono" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Philodendron Jose Buono</h2>
+                                    <p class="care-description">A large variegated philodendron that grows strongly with warmth and chunky soil.</p>
+                                    <div class="care-toggle" id="jose-buono-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="jose-buono-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top quarter to third dries. Avoid cold, wet roots.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light with gentle morning sun tolerated.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Very chunky aroid mix with large bark, perlite, and charcoal.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings with a node root well in water or moss.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="monstera-thai" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('monstera-thai')">
+                            <div class="care-header">
+                                <div class="care-plant-image"><img src="assets/plants/monstera-thai/1.jpg" alt="Monstera Thai" class="care-hero-image"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Monstera Thai</h2>
+                                    <p class="care-description">A premium variegated Monstera that likes patience, bright light, and very airy soil.</p>
+                                    <div class="care-toggle" id="monstera-thai-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="monstera-thai-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top quarter to third dries. This plant is sensitive to root rot.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is essential for healthy variegated growth.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use a bark-heavy, fast-draining aroid mix.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Node cuttings are possible, but slow growth means patience matters.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="golden-pothos" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('golden-pothos')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Golden Pothos"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Golden Pothos</h2>
+                                    <p class="care-description">A classic trailing vine with golden variegation and very forgiving care needs.</p>
+                                    <div class="care-toggle" id="golden-pothos-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="golden-pothos-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top 1 to 2 inches of soil dry. It tolerates missed waterings better than soggy soil.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light keeps variegation strong, but it also tolerates medium and lower light.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use standard potting mix with extra perlite or bark for drainage.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Cut below a node and root easily in water or soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="marble-queen-pothos" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('marble-queen-pothos')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Marble Queen Pothos"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Marble Queen Pothos</h2>
+                                    <p class="care-description">A creamy variegated pothos that trails beautifully and stays beginner friendly.</p>
+                                    <div class="care-toggle" id="marble-queen-pothos-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="marble-queen-pothos-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top 1 to 2 inches dry. Avoid keeping the soil constantly wet.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light helps maintain the white marbling. Lower light may reduce variegation.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use light, well-draining potting soil with perlite.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings with nodes root quickly in water or soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="heartleaf-philodendron" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('heartleaf-philodendron')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Heartleaf Philodendron"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Heartleaf Philodendron</h2>
+                                    <p class="care-description">A soft trailing philodendron with heart-shaped leaves and simple care.</p>
+                                    <div class="care-toggle" id="heartleaf-philodendron-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="heartleaf-philodendron-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Let the top few inches dry before watering. Drooping usually improves after watering.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Medium to bright indirect light. It tolerates lower light with slower growth.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use loose potting mix with perlite or bark to prevent compaction.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Take stem cuttings with nodes and root in water, moss, or soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="philodendron-brasil" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('philodendron-brasil')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Philodendron Brasil"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Philodendron Brasil</h2>
+                                    <p class="care-description">A colorful heartleaf philodendron with lime and green variegation.</p>
+                                    <div class="care-toggle" id="philodendron-brasil-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="philodendron-brasil-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top third of soil dries. Do not let the roots sit in water.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light keeps the yellow-green variegation vibrant.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>A light aroid mix or potting soil with perlite works well.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings root easily from nodes in water or soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="scindapsus-pictus" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('scindapsus-pictus')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Scindapsus Pictus"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Scindapsus Pictus</h2>
+                                    <p class="care-description">A trailing plant with velvety silver-patterned leaves and calm growth.</p>
+                                    <div class="care-toggle" id="scindapsus-pictus-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="scindapsus-pictus-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top 2 inches dry. It prefers drying slightly between waterings.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is ideal, but medium light is usually tolerated.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use a well-draining mix with perlite and some bark.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Cut vines with nodes and root in water or damp moss.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="snake-plant" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('snake-plant')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Snake Plant"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">Snake Plant</h2>
+                                    <p class="care-description">A tough upright plant that handles neglect, dry soil, and variable light.</p>
+                                    <div class="care-toggle" id="snake-plant-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="snake-plant-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water only after the soil dries fully. Reduce watering strongly in winter.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Tolerates low to bright indirect light. Growth is faster in brighter spots.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use cactus mix or very well-draining soil to prevent rot.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Propagate by division or leaf cuttings, though variegated types may not stay true from leaf cuttings.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="zz-plant" data-care="easy">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('zz-plant')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for ZZ Plant"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Easy</span></div>
+                                    <h2 class="care-name">ZZ Plant</h2>
+                                    <p class="care-description">A glossy, drought-tolerant plant with strong indoor survival power.</p>
+                                    <div class="care-toggle" id="zz-plant-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="zz-plant-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Let the soil dry completely before watering. Thick rhizomes store water.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Tolerates low to bright indirect light. Avoid intense direct sun.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use well-draining potting mix with perlite or cactus mix added.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Propagate by division, stem cuttings, or leaf cuttings, but rooting is slow.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="rhaphidophora-tetrasperma" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('rhaphidophora-tetrasperma')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Rhaphidophora Tetrasperma"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Rhaphidophora Tetrasperma</h2>
+                                    <p class="care-description">A fast-climbing aroid with split leaves and a compact Monstera-like look.</p>
+                                    <div class="care-toggle" id="rhaphidophora-tetrasperma-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="rhaphidophora-tetrasperma-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top 2 inches dry. Keep moisture steady without soggy soil.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light supports larger leaves and stronger climbing growth.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use chunky aroid mix with bark, perlite, and coco coir.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings with nodes root well in water or moss.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="philodendron-micans" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('philodendron-micans')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Philodendron Micans"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Philodendron Micans</h2>
+                                    <p class="care-description">A velvety trailing philodendron with bronze-green leaves and soft texture.</p>
+                                    <div class="care-toggle" id="philodendron-micans-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="philodendron-micans-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water after the top few inches dry. Avoid full dryness for too long.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light improves color and fuller growth. Avoid harsh sun.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use airy aroid mix or potting mix with added bark and perlite.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Node cuttings root easily in water, moss, or soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="philodendron-gloriosum" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('philodendron-gloriosum')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Philodendron Gloriosum"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Philodendron Gloriosum</h2>
+                                    <p class="care-description">A crawling philodendron with large velvety leaves and bold white veins.</p>
+                                    <div class="care-toggle" id="philodendron-gloriosum-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="philodendron-gloriosum-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top third dries. Keep the rhizome above the soil surface.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light supports larger leaves. Avoid direct afternoon sun.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use chunky, breathable aroid mix in a wide pot or rectangular planter.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Propagate by rhizome sections with a node and active growth point.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="anthurium-clarinervium" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('anthurium-clarinervium')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Anthurium Clarinervium"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Anthurium Clarinervium</h2>
+                                    <p class="care-description">A velvet-leaf Anthurium with heart-shaped leaves and striking white veins.</p>
+                                    <div class="care-toggle" id="anthurium-clarinervium-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="anthurium-clarinervium-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top third of the mix dries. Keep roots airy, not wet.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is best. Direct sun can scorch the leaves.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use chunky aroid mix with bark, perlite, charcoal, and coco chips.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Propagate by division when the plant has multiple growth points.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="anthurium-crystallinum" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('anthurium-crystallinum')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Anthurium Crystallinum"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Anthurium Crystallinum</h2>
+                                    <p class="care-description">A refined velvet Anthurium with shimmery leaves and strong veining.</p>
+                                    <div class="care-toggle" id="anthurium-crystallinum-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="anthurium-crystallinum-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the upper mix begins to dry. Avoid both soggy and bone-dry roots.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright filtered light encourages larger leaves and better vein contrast.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use very airy Anthurium or aroid mix with bark and perlite.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Division is easiest. Stem sections can root with warmth and humidity.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="monstera-albo" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('monstera-albo')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Monstera Albo"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Monstera Albo</h2>
+                                    <p class="care-description">A highly sought-after variegated Monstera with white sectoral variegation.</p>
+                                    <div class="care-toggle" id="monstera-albo-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="monstera-albo-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top quarter to third dries. Avoid overwatering white-variegated growth.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is essential. Direct sun can burn white areas.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use bark-heavy, fast-draining aroid mix with strong airflow around roots.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Take node cuttings. Variegation depends on the variegation present in the node.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="monstera-aurea" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('monstera-aurea')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Monstera Aurea"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Monstera Aurea</h2>
+                                    <p class="care-description">A yellow-variegated Monstera with rare color patterns and slow, careful growth.</p>
+                                    <div class="care-toggle" id="monstera-aurea-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="monstera-aurea-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water after the top quarter to third dries. Keep conditions stable.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light supports yellow variegation without leaf burn.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use chunky aroid mix with bark, perlite, and coco chips.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Node cuttings can root, but growth is slow and variegation may vary.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="philodendron-ring-of-fire" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('philodendron-ring-of-fire')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Philodendron Ring of Fire"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Philodendron Ring of Fire</h2>
+                                    <p class="care-description">A serrated-leaf philodendron with changing cream, orange, and green variegation.</p>
+                                    <div class="care-toggle" id="philodendron-ring-of-fire-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="philodendron-ring-of-fire-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top third dries. Avoid cold, wet soil.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light helps keep variegation and compact growth.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use chunky aroid mix with bark, perlite, and charcoal.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings with nodes root in moss or water under warm conditions.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="philodendron-florida-beauty" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('philodendron-florida-beauty')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Philodendron Florida Beauty"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Philodendron Florida Beauty</h2>
+                                    <p class="care-description">A variegated climbing philodendron with lobed leaves and creamy speckling.</p>
+                                    <div class="care-toggle" id="philodendron-florida-beauty-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="philodendron-florida-beauty-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top 2 inches dry. Do not keep the mix wet for long periods.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light helps maintain variegation. Avoid harsh direct sun.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Chunky, fast-draining aroid mix is best for healthy climbing roots.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings need a node. Variegation can vary from cutting to cutting.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="hoya-carnosa" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('hoya-carnosa')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Hoya Carnosa"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Hoya Carnosa</h2>
+                                    <p class="care-description">A waxy-leaf trailing plant that can bloom when given bright light and patience.</p>
+                                    <div class="care-toggle" id="hoya-carnosa-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="hoya-carnosa-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Let the mix dry mostly between waterings. Thick leaves store water.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light and some gentle morning sun can encourage blooms.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use very well-draining mix with orchid bark, perlite, and a little potting soil.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings root well in water, moss, or airy soil.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="hoya-kerrii" data-care="moderate">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('hoya-kerrii')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Hoya Kerrii"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Moderate</span></div>
+                                    <h2 class="care-name">Hoya Kerrii</h2>
+                                    <p class="care-description">A slow-growing Hoya with thick heart-shaped leaves and low water needs.</p>
+                                    <div class="care-toggle" id="hoya-kerrii-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="hoya-kerrii-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water only when the mix is mostly dry. Overwatering is the main risk.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light is best. Gentle morning sun is usually helpful.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use chunky, fast-draining Hoya mix with bark and perlite.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Stem cuttings with a node are needed. Single leaf cuttings often do not vine.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="syngonium-albo" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('syngonium-albo')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Syngonium Albo"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Syngonium Albo</h2>
+                                    <p class="care-description">A variegated arrowhead vine with white splashes and fast-growing potential.</p>
+                                    <div class="care-toggle" id="syngonium-albo-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="syngonium-albo-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Water when the top 1 to 2 inches dry. Avoid staying soggy.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light helps maintain white variegation. Direct sun can burn pale areas.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use loose, well-draining aroid mix with perlite and bark.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Node cuttings root easily in water or moss. Variegation varies by node.</p></div>
+                        </div></div>
+                    </article>
+
+                    <article class="care-plant-card" data-plant="alocasia-frydek-variegata" data-care="collector">
+                        <button class="care-summary" type="button" onclick="toggleCareDetails('alocasia-frydek-variegata')">
+                            <div class="care-header">
+                                <div class="care-plant-image blank-plant-image" aria-label="Image placeholder for Alocasia Frydek Variegata"></div>
+                                <div class="care-info">
+                                    <div class="care-card-topline"><span>Collector</span></div>
+                                    <h2 class="care-name">Alocasia Frydek Variegata</h2>
+                                    <p class="care-description">A rare velvet Alocasia with white variegation and high consistency needs.</p>
+                                    <div class="care-toggle" id="alocasia-frydek-variegata-toggle"><span>See Details</span><div class="toggle-icon">▼</div></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="care-details" id="alocasia-frydek-variegata-details"><div class="care-content">
+                            <div class="care-section"><h3>Water</h3><p>Keep lightly and evenly moist, but never soggy. Let the top 20 to 30 percent dry.</p></div>
+                            <div class="care-section"><h3>Light</h3><p>Bright indirect light supports variegation and stronger leaves. Avoid harsh sun.</p></div>
+                            <div class="care-section"><h3>Soil</h3><p>Use very chunky, fast-draining mix with bark, perlite, and coco chips.</p></div>
+                            <div class="care-section"><h3>Propagation</h3><p>Propagate by corms or division. Variegation is not guaranteed in every new plant.</p></div>
+                        </div></div>
+                    </article>
+                </div>
+                <p class="empty-state" id="careEmptyState">No care guides match those filters.</p>
+            </div>
+        </section>
+
+        <div data-shared-contact data-contact-id="contact"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <script src="contact-section.js"></script>
+    <script src="site-animations.js"></script>
+    <script src="plants.js"></script>
+    <script>
+        function toggleCareDetails(plantName) {
+            const details = document.getElementById(plantName + '-details');
+            const icon = document.querySelector(`[data-plant="${plantName}"] .toggle-icon`);
+            const card = document.querySelector(`[data-plant="${plantName}"]`);
+
+            if (!details || !icon || !card) return;
+
+            details.classList.toggle('expanded');
+            icon.textContent = details.classList.contains('expanded') ? '▲' : '▼';
+            card.classList.toggle('expanded');
+        }
+
+        function applyCareFilters() {
+            const list = document.getElementById('careList');
+            const cards = Array.from(document.querySelectorAll('.care-plant-card'));
+            const search = (document.getElementById('careSearch')?.value || '').toLowerCase();
+            const level = document.querySelector('.care-chip.active')?.dataset.level || 'all';
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const matches = (!search || card.textContent.toLowerCase().includes(search))
+                    && (level === 'all' || card.dataset.care === level);
+                card.classList.toggle('hidden', !matches);
+                if (matches) visibleCount += 1;
+            });
+
+            cards.sort((a, b) =>
+                a.querySelector('.care-name').textContent.localeCompare(b.querySelector('.care-name').textContent)
+            ).forEach(card => list.appendChild(card));
+
+            document.querySelector('.care-count').textContent = `${visibleCount} ${visibleCount === 1 ? 'guide' : 'guides'}`;
+            document.getElementById('careEmptyState').classList.toggle('visible', visibleCount === 0);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('careSearch')?.addEventListener('input', applyCareFilters);
+
+            document.querySelectorAll('.care-chip').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.care-chip').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applyCareFilters();
+                });
+            });
+
+            applyCareFilters();
+        });
+    </script>
+</body>
+</html>

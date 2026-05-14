@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stories, care notes, and behind-the-scenes updates from Monstera Mom in Halifax.">
+    <title>Plant Care Blog | Monstera Mom</title>
+    <link rel="stylesheet" href="plants.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" aria-label="Monstera Mom home">
+                <img src="assets/logo1.png" alt="Monstera Mom Logo" class="logo">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="care.html" class="nav-link">Care</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero blog-page-hero">
+            <div class="container page-hero-grid">
+                <div>
+                    <p class="section-kicker">Plant notes and stories</p>
+                    <h1>Small stories from a growing plant home.</h1>
+                    <p>Behind the scenes, care reflections, and little moments from Monstera Mom.</p>
+                </div>
+                <img src="assets/blogs/blog1.jpg" alt="Monstera leaves" class="page-hero-image">
+            </div>
+        </section>
+
+        <section class="section plants-section">
+            <div class="container blog-layout">
+                <article class="blog-card featured-blog-card" data-post="1">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Monstera</span>
+                            <span class="blog-tag">Personal</span>
+                            <span class="blog-readtime">1 min read</span>
+                            <time class="blog-date" datetime="2025-12-29">Dec 29, 2025</time>
+                        </div>
+                        <h2 class="blog-title">From Two Tiny Leaves to a Home Full of Green</h2>
+                        <p class="blog-excerpt">
+                            This is the story of how our love for plants grew into something bigger: a belief that no house truly becomes a home without a little green life inside.
+                        </p>
+                        <div class="blog-full-content" id="post1-full">
+                            <p>It all started with one little Monstera. It had only two tiny leaves, and we were new to the plant world.</p>
+                            <img src="assets/blogs/blog1.jpg" alt="Monstera leaves" class="blog-inline-image popup-img">
+                            <p>A couple of months later, the room was full of houseplants. My husband caught the plant fever too, and now our baby loves reaching for every leaf close enough to touch.</p>
+                            <p>We decided to share that joy with other homes, because a little green life can make a space feel warmer, softer, and more alive.</p>
+                        </div>
+                        <button class="blog-toggle" type="button" onclick="toggleBlogPost('1', this)">See More</button>
+                    </div>
+                    <button class="blog-image" type="button" onclick="openImageModal('assets/blogs/blog1.jpg', 'Monstera leaves')">
+                        <img src="assets/blogs/blog1.jpg" alt="Monstera leaves">
+                    </button>
+                </article>
+
+                <article class="blog-card" data-post="2">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Business Card</span>
+                            <span class="blog-tag">Shop</span>
+                            <span class="blog-readtime">1 min read</span>
+                            <time class="blog-date" datetime="2025-12-20">Dec 20, 2025</time>
+                        </div>
+                        <h2 class="blog-title">Business Card</h2>
+                        <p class="blog-excerpt">Monstera Mom: magic in every leaf.</p>
+                        <div class="blog-full-content" id="post2-full">
+                            <div class="blog-image-row">
+                                <img src="assets/blogs/blog0 (1).png" alt="Monstera Mom business card front" class="blog-inline-image popup-img">
+                                <img src="assets/blogs/blog0 (2).png" alt="Monstera Mom business card back" class="blog-inline-image popup-img">
+                            </div>
+                        </div>
+                        <button class="blog-toggle" type="button" onclick="toggleBlogPost('2', this)">See More</button>
+                    </div>
+                    <button class="blog-image" type="button" onclick="openImageModal('assets/blogs/blog0 (1).png', 'Monstera Mom business card front')">
+                        <img src="assets/blogs/blog0 (1).png" alt="Monstera Mom business card front">
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <div data-shared-contact data-contact-id="contact"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <div id="imgModal" class="img-modal" aria-hidden="true">
+        <button class="img-modal-close" id="imgModalClose" type="button" aria-label="Close image">&times;</button>
+        <img class="img-modal-content" id="imgModalImg" alt="">
+    </div>
+
+    <script src="contact-section.js"></script>
+    <script src="site-animations.js"></script>
+    <script src="plants.js"></script>
+    <script>
+        function toggleBlogPost(postId, button) {
+            const fullContent = document.getElementById(`post${postId}-full`);
+            if (!fullContent || !button) return;
+
+            const isExpanded = fullContent.classList.toggle('expanded');
+            button.textContent = isExpanded ? 'See Less' : 'See More';
+            button.classList.toggle('expanded', isExpanded);
+
+            const card = button.closest('.blog-card');
+            if (card) card.classList.toggle('post-expanded', isExpanded);
+        }
+
+        function openImageModal(src, alt) {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('imgModalImg');
+
+            modalImg.src = src;
+            modalImg.alt = alt;
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('imgModalImg');
+
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            modalImg.src = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const closeBtn = document.getElementById('imgModalClose');
+            const modal = document.getElementById('imgModal');
+
+            document.addEventListener('click', function (event) {
+                const image = event.target.closest('.popup-img');
+                if (image) openImageModal(image.src, image.alt);
+            });
+
+            closeBtn.addEventListener('click', closeImageModal);
+            modal.addEventListener('click', function (event) {
+                if (event.target === modal) closeImageModal();
+            });
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') closeImageModal();
+            });
+        });
+    </script>
+</body>
+</html>

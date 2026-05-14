@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Monstera Mom is a Halifax plant shop offering healthy houseplants, rare Monsteras, plant accessories, and friendly pickup service.">
+    <title>Monstera Mom | Halifax Houseplants</title>
+    <link rel="stylesheet" href="plants.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script>
+        // UPDATE THIS LINE ONLY: use plant IDs from the comment below, separated by commas.
+        const AVAILABLE_PLANTS = "monstera-deliciosa, arrow-head, croton, pink-princess, pink-small, swiss-cheese, white-princess, burle-marx, splash, birkin, calathea, jose-buono, monstera-thai, keyring, magnet";
+
+        /*
+        Shop plant IDs (plants/[id].html exists, usable in AVAILABLE_PLANTS above):
+        monstera-deliciosa, arrow-head, croton, pink-princess, pink-small,
+        swiss-cheese, white-princess, burle-marx, splash, birkin,
+        calathea, jose-buono, monstera-thai, keyring, magnet
+
+        Care guide only (in care.html, no shop page yet):
+        golden-pothos, marble-queen-pothos, heartleaf-philodendron, philodendron-brasil,
+        scindapsus-pictus, snake-plant, zz-plant, rhaphidophora-tetrasperma,
+        philodendron-micans, philodendron-gloriosum, anthurium-clarinervium,
+        anthurium-crystallinum, monstera-albo, monstera-aurea, philodendron-ring-of-fire,
+        philodendron-florida-beauty, hoya-carnosa, hoya-kerrii, syngonium-albo,
+        alocasia-frydek-variegata
+        */
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" aria-label="Monstera Mom home">
+                <img src="assets/logo1.png" alt="Monstera Mom logo" class="logo">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#plants" class="nav-link">Plants</a></li>
+                <li><a href="care.html" class="nav-link">Care</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="section hero-section home-hero">
+            <div class="container hero-layout">
+                <div class="hero-content">
+                    <p class="hero-kicker">Halifax houseplants and handmade plant goods</p>
+                    <h1 class="hero-title">Healthy, home-ready plants with local pickup.</h1>
+                    <p class="hero-subtitle">Rare Monsteras, easy-care favorites, and cheerful accessories.</p>
+                    <p class="hero-description">
+                        Monstera Mom grows and curates plants for real homes: rooted, cared for, and ready for bright windows, cozy corners, and new plant parents.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#plants" class="btn btn-primary">Shop Plants</a>
+                        <a href="care.html" class="btn btn-secondary">Plant Care Tips</a>
+                    </div>
+                </div>
+                <div class="hero-media" aria-label="Featured Monstera plant">
+                    <img src="assets/plants/monstera-thai/1.jpg" alt="Variegated Monstera Thai plant">
+                    <div class="hero-note">
+                        <span>Featured</span>
+                        <strong>Monstera Thai</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="plants" class="section plants-section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Current collection</p>
+                    <h2 class="section-title">Available Plants</h2>
+                    <p class="section-intro">Filter the shop by care level, collector plants, or accessories.</p>
+                </div>
+                <div class="shop-controls">
+                    <label class="control-field control-field-wide">
+                        <span>Search</span>
+                        <input type="search" id="plantSearch" placeholder="Search plants, care notes, or accessories">
+                    </label>
+                    <label class="control-field">
+                        <span>Sort</span>
+                        <select id="plantSort">
+                            <option value="featured">Featured</option>
+                            <option value="name-asc">Name A-Z</option>
+                            <option value="price-asc">Price low-high</option>
+                            <option value="price-desc">Price high-low</option>
+                        </select>
+                    </label>
+                    <p class="plant-count">– listings</p>
+                </div>
+                <div class="plant-toolbar">
+                    <div class="filter-buttons" aria-label="Filter plants">
+                        <button class="filter-btn active" type="button" onclick="filterPlants('all', this)">All</button>
+                        <button class="filter-btn" type="button" onclick="filterPlants('easy-care', this)">Easy Care</button>
+                        <button class="filter-btn" type="button" onclick="filterPlants('moderate', this)">Moderate</button>
+                        <button class="filter-btn" type="button" onclick="filterPlants('rare', this)">Rare</button>
+                        <button class="filter-btn" type="button" onclick="filterPlants('acc', this)">Accessories</button>
+                    </div>
+                </div>
+
+                <div class="plants-grid" id="plantsGrid">
+                    <article class="plant-card" data-category="moderate" data-plant-id="monstera-deliciosa">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/monstera-deliciosa.html"><img src="assets/plants/monstera-deliciosa/1.jpg" alt="Monstera Deliciosa" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Monstera Deliciosa</h3>
+                        <p class="plant-description">A large tropical foliage plant with iconic split leaves. Native to Central America and commonly grown as a statement indoor plant.</p>
+                        <div class="plant-price">$9.99 - $39.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Moderate, deep water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Chunky, airy soil</span>
+                        </div>
+                        <a href="plants/monstera-deliciosa.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="easy-care" data-plant-id="arrow-head">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/arrow-head.html"><img src="assets/plants/arrow-head/1.jpg" alt="Arrow Head plant" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Arrow Head</h3>
+                        <p class="plant-description">A fast-growing vine with arrow-shaped leaves. Adaptable and popular for indoor trailing displays.</p>
+                        <div class="plant-price">$6.99 - $19.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Light, regular water</span>
+                            <span class="plant-detail-item">Indirect light</span>
+                            <span class="plant-detail-item">Loose, moist soil</span>
+                        </div>
+                        <a href="plants/arrow-head.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="moderate" data-plant-id="croton">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/croton.html"><img src="assets/plants/croton/1.jpg" alt="Croton plant" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Croton</h3>
+                        <p class="plant-description">A bold ornamental plant with striking multicolored foliage. Sensitive to stress and environmental changes.</p>
+                        <div class="plant-price">$9.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Consistent moisture</span>
+                            <span class="plant-detail-item">Very bright light</span>
+                            <span class="plant-detail-item">Rich, draining soil</span>
+                        </div>
+                        <a href="plants/croton.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="rare" data-plant-id="pink-princess">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/pink-princess.html"><img src="assets/plants/pink-princess/1.jpg" alt="Pink Princess plant" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Pink Princess</h3>
+                        <p class="plant-description">A variegated philodendron with pink splashes. Grown for contrast rather than speed.</p>
+                        <div class="plant-price">$16.99 - $34.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Controlled water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Chunky mix soil</span>
+                        </div>
+                        <a href="plants/pink-princess.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="rare" data-plant-id="pink-small">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/pink-small.html"><img src="assets/plants/pink-small/1.jpg" alt="Small Pink Princess plant" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Pink Princess (small)</h3>
+                        <p class="plant-description">A smaller variegated philodendron with pink splashes, ideal for shelves and starter collections.</p>
+                        <div class="plant-prices">
+                            <span class="price-original">$20.00</span>
+                            <span class="price-sale">$17.49</span>
+                            <span class="sale-badge">SALE</span>
+                        </div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Controlled water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Chunky mix soil</span>
+                        </div>
+                        <a href="plants/pink-small.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="moderate" data-plant-id="swiss-cheese">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/swiss-cheese.html"><img src="assets/plants/swiss-cheese/1.jpg" alt="Swiss Cheese Monstera" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Swiss Cheese Monstera</h3>
+                        <p class="plant-description">A smaller-leaf Monstera with oval holes, commonly grown as a trailing or climbing houseplant.</p>
+                        <div class="plant-prices">
+                            <span class="price-original">$40.00</span>
+                            <span class="price-sale">$34.99</span>
+                            <span class="sale-badge">SALE</span>
+                        </div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Moderate watering</span>
+                            <span class="plant-detail-item">Indirect light</span>
+                            <span class="plant-detail-item">Airy, light soil</span>
+                        </div>
+                        <a href="plants/swiss-cheese.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="rare" data-plant-id="white-princess">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/white-princess.html"><img src="assets/plants/white-princess/1.jpg" alt="White Princess plant" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">White Princess</h3>
+                        <p class="plant-description">A variegated philodendron grown for crisp contrast, with color dependent on strong light and stable care.</p>
+                        <div class="plant-price">$16.99 - $34.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Careful water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Fast-draining mix</span>
+                        </div>
+                        <a href="plants/white-princess.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="easy-care" data-plant-id="burle-marx">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/burle-marx.html"><img src="assets/plants/burle-marx/1.jpg" alt="Philodendron Burle Marx" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Philodendron Burle Marx</h3>
+                        <p class="plant-description">A compact, crawling philodendron valued for durability, tidy growth, and easygoing care.</p>
+                        <div class="plant-price">$19.99 - $39.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Moderate water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Chunky soil</span>
+                        </div>
+                        <a href="plants/burle-marx.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="rare" data-plant-id="splash">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/splash.html"><img src="assets/plants/splash/1.jpg" alt="Alocasia Macrorrhiza Splash" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Alocasia Macrorrhiza Splash</h3>
+                        <p class="plant-description">A dramatic giant Alocasia with white splash variegation, bold foliage, and higher care needs.</p>
+                        <div class="plant-price">$19.99 - $39.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Precise water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Very chunky soil</span>
+                        </div>
+                        <a href="plants/splash.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="easy-care" data-plant-id="birkin">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/birkin.html"><img src="assets/plants/birkin/1.jpg" alt="Philodendron Birkin" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Philodendron Birkin</h3>
+                        <p class="plant-description">A compact self-heading philodendron with pinstripe variegation. Easygoing but light dependent for pattern.</p>
+                        <div class="plant-price">$15.99 - $34.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Moderate water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Fast-draining soil</span>
+                        </div>
+                        <a href="plants/birkin.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="rare" data-plant-id="calathea">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/calathea.html"><img src="assets/plants/calathea/1.jpg" alt="Calathea White Fusion" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Calathea White Fusion</h3>
+                        <p class="plant-description">A highly variegated Calathea prized for white and green foliage. Stunning, sensitive, and humidity loving.</p>
+                        <div class="plant-price">$19.99 - $39.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Precise water</span>
+                            <span class="plant-detail-item">Medium indirect light</span>
+                            <span class="plant-detail-item">Moisture-balanced soil</span>
+                        </div>
+                        <a href="plants/calathea.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="moderate" data-plant-id="jose-buono">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/jose-buono.html"><img src="assets/plants/jose-buono/1.jpg" alt="Philodendron Jose Buono" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Philodendron Jose Buono</h3>
+                        <p class="plant-description">A large, dramatic variegated philodendron with splashy cream patterns and vigorous growth.</p>
+                        <div class="plant-price">$19.99 - $39.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Moderate water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Very chunky soil</span>
+                        </div>
+                        <a href="plants/jose-buono.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card featured-card" data-category="moderate" data-plant-id="monstera-thai">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/monstera-thai.html"><img src="assets/plants/monstera-thai/1.jpg" alt="Monstera Thai Constellation" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Monstera Thai</h3>
+                        <p class="plant-description">A slow-growing Monstera with creamy speckled variegation. Premium, patient, and worth the wait.</p>
+                        <div class="plant-price">$39.99 - $59.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Precise water</span>
+                            <span class="plant-detail-item">Bright indirect light</span>
+                            <span class="plant-detail-item">Very chunky soil</span>
+                        </div>
+                        <a href="plants/monstera-thai.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="acc" data-plant-id="keyring">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/keyring.html"><img src="assets/plants/keyring/1.jpg" alt="Monstera Mom key ring" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Key Ring</h3>
+                        <p class="plant-description">A compact keyring designed for everyday use, with a durable attachment and plant-loving style.</p>
+                        <div class="plant-price">$4.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Durable metal ring</span>
+                            <span class="plant-detail-item">Lightweight</span>
+                            <span class="plant-detail-item">Gift ready</span>
+                        </div>
+                        <a href="plants/keyring.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+
+                    <article class="plant-card" data-category="acc" data-plant-id="magnet">
+                        <div class="plant-image-wrapper">
+                            <a href="plants/magnet.html"><img src="assets/plants/magnet/1.jpg" alt="Monstera Mom fridge magnet" class="fit-image"></a>
+                        </div>
+                        <h3 class="plant-name">Fridge Magnet</h3>
+                        <p class="plant-description">A lightweight magnet for notes, photos, or reminders, finished with clean plant-inspired artwork.</p>
+                        <div class="plant-price">$4.99</div>
+                        <div class="plant-details">
+                            <span class="plant-detail-item">Long-lasting print</span>
+                            <span class="plant-detail-item">Clean design</span>
+                            <span class="plant-detail-item">Indoor use</span>
+                        </div>
+                        <a href="plants/magnet.html" class="btn btn-primary btn-small">View Details</a>
+                    </article>
+                </div>
+                <p class="empty-state" id="plantEmptyState">No listings match your search yet.</p>
+            </div>
+        </section>
+
+        <div data-shared-contact data-contact-id="contact"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="contact-section.js"></script>
+    <script src="site-animations.js"></script>
+    <script src="plant-prices.js"></script>
+    <script src="plants.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof PLANT_PRICES === 'undefined') return;
+            document.querySelectorAll('.plant-card[data-plant-id]').forEach(function (card) {
+                var data = PLANT_PRICES[card.dataset.plantId];
+                if (!data) return;
+                var el = card.querySelector('.plant-prices, .plant-price');
+                if (!el) return;
+                if (data.sale) {
+                    el.outerHTML = '<div class="plant-prices"><span class="price-original">' + data.original +
+                        '</span><span class="price-sale">' + data.sale +
+                        '</span><span class="sale-badge">SALE</span></div>';
+                } else if (data.price) {
+                    el.outerHTML = '<div class="plant-price">' + data.price + '</div>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

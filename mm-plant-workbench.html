@@ -1,0 +1,909 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstera Mom - Add Plant Form</title>
+    <link rel="stylesheet" href="plants.css">
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--color-background);
+            padding-bottom: var(--space-32);
+        }
+
+        .form-page {
+            padding-top: var(--space-32);
+        }
+
+        .form-page-header {
+            background: linear-gradient(135deg, rgba(252, 252, 249, 0.98), rgba(230, 246, 238, 0.92));
+            border: 1px solid var(--color-card-border);
+            border-left: 5px solid var(--color-primary);
+            border-radius: var(--radius-base);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--space-32);
+            padding: var(--space-24) var(--space-32);
+        }
+
+        .form-page-header h1 {
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            line-height: 1.05;
+            margin-bottom: var(--space-12);
+        }
+
+        .subtitle {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-lg);
+            margin: 0;
+            max-width: 64ch;
+        }
+
+        /* Two-column layout: left = form flow, right = output */
+        .main-layout {
+            display: grid;
+            grid-template-columns: minmax(420px, 560px) minmax(0, 1fr);
+            gap: var(--space-24);
+            align-items: start;
+        }
+
+        .main-layout > * {
+            min-width: 0;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+        }
+
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-20);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-base);
+            box-shadow: var(--shadow-sm);
+            padding: var(--space-24);
+        }
+
+        .card-title {
+            border-bottom: 1px solid var(--color-card-border-inner);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            margin-bottom: var(--space-20);
+            padding-bottom: var(--space-12);
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            flex-shrink: 0;
+        }
+
+        /* Form */
+        .form-group { margin-bottom: var(--space-16); }
+        .form-group:last-child { margin-bottom: 0; }
+
+        label {
+            color: var(--color-text-secondary);
+            display: block;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+            text-transform: uppercase;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            color: var(--color-text);
+            font: inherit;
+            min-height: 42px;
+            padding: var(--space-10) var(--space-12);
+            width: 100%;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: var(--focus-ring);
+        }
+
+        .help-text {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-xs);
+            margin-top: var(--space-6);
+        }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
+
+        /* Prompt box */
+        .prompt-box {
+            background: var(--color-slate-900);
+            border: 1px solid rgba(var(--color-primary-rgb), 0.18);
+            border-radius: var(--radius-base);
+            color: var(--color-cream-50);
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-sm);
+            white-space: pre-wrap;
+            word-break: break-word;
+            line-height: 1.65;
+            max-height: 260px;
+            overflow-y: auto;
+            padding: var(--space-16);
+        }
+
+        .prompt-placeholder {
+            background: var(--color-background);
+            border: 1px dashed var(--color-border);
+            border-radius: var(--radius-base);
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-base);
+            padding: var(--space-24) var(--space-16);
+            text-align: center;
+        }
+
+        /* Paste textarea */
+        #chatgptOutput {
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-sm);
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        /* Buttons */
+        .btn {
+            align-items: center;
+            border-radius: var(--radius-base);
+            display: inline-flex;
+            font-weight: var(--font-weight-medium);
+            justify-content: center;
+            margin-top: var(--space-10);
+            min-height: 42px;
+            padding: var(--space-8) var(--space-16);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            width: 100%;
+        }
+
+        .btn-green  { background: var(--color-primary); color: var(--color-btn-primary-text); }
+        .btn-green:hover  { background: var(--color-primary-hover); transform: translateY(-1px); }
+        .btn-green:active { transform: scale(0.98); }
+
+        .btn-dark   { background: var(--color-secondary); color: var(--color-text); border: 1px solid var(--color-border); }
+        .btn-dark:hover   { background: var(--color-secondary-hover); }
+        .btn-dark.copied  { background: var(--color-primary); color: var(--color-btn-primary-text); }
+
+        /* Output section */
+        .output-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+            min-width: 0;
+            max-width: 100%;
+            position: sticky;
+            top: calc(70px + var(--space-20));
+        }
+
+        #outputCard {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        /* Individual code section inside the output card */
+        .code-section {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-base);
+            box-shadow: var(--shadow-sm);
+            margin: 0;
+            min-width: 0;
+            max-width: 100%;
+            overflow: hidden;
+            transition: box-shadow var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard);
+        }
+
+        .code-section.open {
+            border-color: rgba(var(--color-primary-rgb), 0.45);
+            box-shadow: var(--shadow-md);
+        }
+
+        .code-section-header {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            padding: var(--space-12) var(--space-16);
+            background: var(--color-surface);
+            cursor: pointer;
+            user-select: none;
+            gap: var(--space-8);
+            transition: background var(--duration-fast) var(--ease-standard);
+        }
+
+        .code-section-header:hover { background: rgba(var(--color-primary-rgb), 0.06); }
+
+        .code-section.open .code-section-header { border-bottom: 1px solid var(--color-card-border-inner); }
+
+        .code-section-label {
+            color: var(--color-text);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            flex: 1;
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .toggle-arrow {
+            color: var(--color-primary);
+            font-size: var(--font-size-xs);
+            transition: transform var(--duration-normal) var(--ease-standard);
+            flex-shrink: 0;
+        }
+
+        .code-section.open .toggle-arrow { transform: rotate(180deg); }
+
+        .copy-btn,
+        .download-btn {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border: none;
+            padding: var(--space-6) var(--space-12);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-standard);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .download-btn {
+            background: var(--color-secondary);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+        }
+
+        .copy-btn:hover { background: var(--color-primary-hover); }
+        .download-btn:hover { background: var(--color-secondary-hover); }
+        .copy-btn.copied { background: var(--color-primary-active); }
+
+        /* Code box - collapsed by default, scrollable when open */
+        .code-box {
+            display: none;
+            width: 100%;
+            max-width: 100%;
+            background: var(--color-slate-900);
+            color: var(--color-cream-50);
+            padding: var(--space-16);
+            font-size: var(--font-size-sm);
+            font-family: var(--font-family-mono);
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            overflow-x: hidden;
+            overflow-y: auto;
+            line-height: 1.6;
+            max-height: 220px;
+        }
+
+        .code-section.open .code-box { display: block; }
+
+        .empty-state {
+            background: var(--color-surface);
+            border: 1px dashed var(--color-border);
+            border-radius: var(--radius-base);
+            box-shadow: var(--shadow-sm);
+            color: var(--color-text-secondary);
+            display: block;
+            font-size: var(--font-size-base);
+            padding: var(--space-32) var(--space-20);
+            text-align: center;
+        }
+
+        .alert {
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            padding: var(--space-10) var(--space-12);
+        }
+        .alert-error {
+            background: rgba(var(--color-error-rgb), 0.12);
+            border: 1px solid rgba(var(--color-error-rgb), 0.22);
+            color: var(--color-error);
+        }
+        .alert-success {
+            background: rgba(var(--color-success-rgb), 0.12);
+            border: 1px solid rgba(var(--color-success-rgb), 0.22);
+            color: var(--color-success);
+        }
+
+        @media (max-width: 900px) {
+            .output-section {
+                position: static;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .form-page {
+                padding-top: var(--space-20);
+            }
+
+            .form-page-header,
+            .card {
+                padding: var(--space-20);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .code-section-header {
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" aria-label="Monstera Mom home">
+                <img src="assets/logo1.png" alt="Monstera Mom Logo" class="logo">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="care.html" class="nav-link">Care</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+<main class="form-page">
+<div class="container">
+    <header class="form-page-header">
+        <p class="section-kicker">Plant shop workflow</p>
+        <h1>Monstera Mom - Add a Plant</h1>
+        <p class="subtitle">Fill your details, copy the prompt to ChatGPT, paste the response, then generate code.</p>
+    </header>
+
+    <div class="main-layout">
+
+        <!-- LEFT COL: all 3 steps -->
+        <div class="left-col">
+
+            <!-- Step 1 -->
+            <div class="card">
+                <div class="card-title"><span class="step-num">1</span> Your Details</div>
+
+                <div class="form-group">
+                    <label for="plantName">Plant Name *</label>
+                    <input type="text" id="plantName" placeholder="e.g., Pink Princess Philodendron">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Price *</label>
+                        <input type="text" id="price" placeholder="$29.99">
+                        <p class="help-text">Include $. Range ok: $9.99 - $39.99</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="salePrice">Sale Price</label>
+                        <input type="text" id="salePrice" placeholder="$24.99">
+                        <p class="help-text">Leave blank if no sale</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="careLevel">Care Level *</label>
+                        <select id="careLevel">
+                            <option value="">-- Select --</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="shopPlant">Add to Shop? *</label>
+                        <select id="shopPlant">
+                            <option value="">-- Select --</option>
+                            <option value="yes">Yes - product page</option>
+                            <option value="no">No - care guide only</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="photoCountGroup" class="form-group" style="display:none;">
+                    <label for="photoCount">Number of Photos</label>
+                    <input type="number" id="photoCount" min="1" max="10" value="3">
+                    <p class="help-text">How many photos (1.jpg, 2.jpg ...)</p>
+                </div>
+
+                <button type="button" class="btn btn-green" onclick="generatePrompt()">Generate ChatGPT Prompt</button>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="card">
+                <div class="card-title"><span class="step-num">2</span> Copy This Prompt into ChatGPT</div>
+                <div id="promptDisplay">
+                    <div class="prompt-placeholder">Fill Step 1 and click "Generate ChatGPT Prompt" to see the prompt here.</div>
+                </div>
+                <button type="button" class="btn btn-dark" id="copyPromptBtn" style="display:none;" onclick="copyPrompt()">Copy Prompt</button>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="card">
+                <div class="card-title"><span class="step-num">3</span> Paste ChatGPT's Response &amp; Generate</div>
+
+                <div class="form-group">
+                    <label for="plantId">Plant ID <span style="color:#aaa;font-weight:400;">(auto-filled, editable)</span></label>
+                    <input type="text" id="plantId" placeholder="e.g., pink-princess">
+                    <p class="help-text">Lowercase, hyphens only. Auto-suggested by ChatGPT.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="chatgptOutput">Paste ChatGPT JSON here *</label>
+                    <textarea id="chatgptOutput" placeholder='{
+  "plant_id": "pink-princess",
+  "plant_type": "Philodendron",
+  "description": "...",
+  "watering": "...",
+  ...
+}'></textarea>
+                </div>
+
+                <div id="pasteAlert" style="margin-bottom:8px;"></div>
+                <button type="button" class="btn btn-green" onclick="generateCode()">Generate Code Snippets</button>
+            </div>
+        </div>
+
+        <!-- RIGHT COL: output -->
+        <div class="output-section">
+            <div id="emptyState" class="empty-state">
+                Complete Steps 1-3 on the left.<br>Your copy-paste code blocks will appear here.
+            </div>
+
+            <div id="outputCard" style="display:none;">
+                <div id="alertBox" style="margin-bottom:8px;"></div>
+
+                <div id="step1" class="code-section" style="display:none;">
+                    <div class="code-section-header" onclick="toggleSection('step1')">
+                        <span class="toggle-arrow">&#9662;</span>
+                        <span class="code-section-label">Step 1 - Add Plant ID to index.html (AVAILABLE_PLANTS)</span>
+                        <button type="button" class="copy-btn" onclick="event.stopPropagation(); copyOut('step1Code', this)">Copy</button>
+                    </div>
+                    <div class="code-box" id="step1Code"></div>
+                </div>
+
+                <div id="step2" class="code-section" style="display:none;">
+                    <div class="code-section-header" onclick="toggleSection('step2')">
+                        <span class="toggle-arrow">&#9662;</span>
+                        <span class="code-section-label">Step 2 - Add Card HTML to index.html (grid)</span>
+                        <button type="button" class="copy-btn" onclick="event.stopPropagation(); copyOut('step2Code', this)">Copy</button>
+                    </div>
+                    <div class="code-box" id="step2Code"></div>
+                </div>
+
+                <div id="step3" class="code-section" style="display:none;">
+                    <div class="code-section-header" onclick="toggleSection('step3')">
+                        <span class="toggle-arrow">&#9662;</span>
+                        <span class="code-section-label">Step 3 - Add Entry to plant-prices.js</span>
+                        <button type="button" class="copy-btn" onclick="event.stopPropagation(); copyOut('step3Code', this)">Copy</button>
+                    </div>
+                    <div class="code-box" id="step3Code"></div>
+                </div>
+
+                <div id="step4" class="code-section" style="display:none;">
+                    <div class="code-section-header" onclick="toggleSection('step4')">
+                        <span class="toggle-arrow">&#9662;</span>
+                        <span class="code-section-label">Step 4 - Create plants/[id].html (save as new file)</span>
+                        <button type="button" class="download-btn" onclick="event.stopPropagation(); downloadOut('step4Code')">Download</button>
+                        <button type="button" class="copy-btn" onclick="event.stopPropagation(); copyOut('step4Code', this)">Copy</button>
+                    </div>
+                    <div class="code-box" id="step4Code"></div>
+                </div>
+
+                <div id="step5" class="code-section" style="display:none;">
+                    <div class="code-section-header" onclick="toggleSection('step5')">
+                        <span class="toggle-arrow">&#9662;</span>
+                        <span class="code-section-label">Step 5 - Add Care Entry to care.html</span>
+                        <button type="button" class="copy-btn" onclick="event.stopPropagation(); copyOut('step5Code', this)">Copy</button>
+                    </div>
+                    <div class="code-box" id="step5Code"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<script>
+    document.getElementById('menuToggle')?.addEventListener('click', function () {
+        const navMenu = document.getElementById('navMenu');
+        const isOpen = navMenu.classList.toggle('active');
+        this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    document.getElementById('shopPlant').addEventListener('change', function () {
+        document.getElementById('photoCountGroup').style.display = this.value === 'yes' ? 'block' : 'none';
+    });
+
+    // Auto-fill plantId from pasted JSON
+    document.getElementById('chatgptOutput').addEventListener('input', function () {
+        try {
+            const cleaned = this.value.trim().replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'');
+            const data = JSON.parse(cleaned);
+            if (data.plant_id && !document.getElementById('plantId').value) {
+                document.getElementById('plantId').value = data.plant_id;
+            }
+        } catch (e) {}
+    });
+
+    function getVal(id) { return document.getElementById(id).value.trim(); }
+
+    function escHtml(text) {
+        const d = document.createElement('div');
+        d.textContent = text;
+        return d.innerHTML;
+    }
+
+    function toggleSection(id) {
+        document.getElementById(id).classList.toggle('open');
+    }
+
+    function copyOut(id, btn) {
+        const text = document.getElementById(id).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        });
+    }
+
+    function downloadOut(id) {
+        const text = document.getElementById(id).textContent;
+        const plantId = getVal('plantId') || 'plant-page';
+        const blob = new Blob([text], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+
+        link.href = url;
+        link.download = `${plantId}.html`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+    }
+
+    function showPasteAlert(msg, type) {
+        document.getElementById('pasteAlert').innerHTML = `<div class="alert alert-${type}">${msg}</div>`;
+    }
+
+    function generatePrompt() {
+        const name = getVal('plantName');
+        if (!name) { alert('Enter the Plant Name in Step 1 first.'); return; }
+
+        const prompt =
+`I need accurate, well-sourced care information for my plant shop website about: ${name}
+
+Please respond with ONLY a valid JSON object - no markdown, no code fences, no explanation, just raw JSON - using exactly this structure:
+
+{
+  "plant_id": "suggested-id-lowercase-hyphens-only",
+  "plant_type": "Category (e.g. Philodendron, Araceae, Tropical, Fern, Succulent, Vine, Peperomia, Flowering)",
+  "description": "Under 150 characters. One punchy sentence that captures what makes this plant special.",
+  "watering": "Water. When and how often to water. Be specific.",
+  "light": "Light. Exact light requirements.",
+  "soil": "Best soil mix with specific components (e.g. 'aroid mix: bark, perlite, coco coir').",
+  "propagation": "The easiest and most reliable propagation method for home growers."
+}
+
+Rules:
+- plant_id must be lowercase with hyphens only, no spaces or underscores (e.g. pink-princess)
+- description must be under 150 characters
+- Keep each value to 1-2 concise, practical sentences
+- Return ONLY the JSON object - nothing before or after it
+
+Before you submit your response, double-check:
+1. Is every care detail accurate and specific to ${name} (not generic plant advice)?
+2. Is the description under 150 characters?
+3. Is the plant_id lowercase with hyphens only?
+4. Are watering and light details precise enough for a beginner to follow without guessing?
+If anything feels uncertain, revise it before responding.`;
+
+        document.getElementById('promptDisplay').innerHTML =
+            `<div class="prompt-box">${escHtml(prompt)}</div>`;
+        const btn = document.getElementById('copyPromptBtn');
+        btn.style.display = 'block';
+        btn._promptText = prompt;
+    }
+
+    function copyPrompt() {
+        const btn = document.getElementById('copyPromptBtn');
+        navigator.clipboard.writeText(btn._promptText).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.textContent = 'Copy Prompt'; btn.classList.remove('copied'); }, 2000);
+        });
+    }
+
+    function hideAllSteps() {
+        ['step1','step2','step3','step4','step5'].forEach(id => {
+            const el = document.getElementById(id);
+            el.style.display = 'none';
+            el.classList.remove('open');
+        });
+        document.getElementById('outputCard').style.display = 'none';
+        document.getElementById('emptyState').style.display = 'block';
+        document.getElementById('alertBox').innerHTML = '';
+    }
+
+    function generateCode() {
+        document.getElementById('pasteAlert').innerHTML = '';
+
+        const plantName  = getVal('plantName');
+        const price      = getVal('price');
+        const salePrice  = getVal('salePrice');
+        const careLevel  = getVal('careLevel');
+        const shopValue  = getVal('shopPlant');
+        const plantId    = getVal('plantId');
+        const rawJson    = getVal('chatgptOutput');
+        const photoCount = parseInt(document.getElementById('photoCount').value) || 3;
+        const isShop     = shopValue === 'yes';
+
+        if (!plantName)  { showPasteAlert('Error: Enter Plant Name in Step 1.', 'error'); return; }
+        if (!price)      { showPasteAlert('Error: Enter Price in Step 1.', 'error'); return; }
+        if (!careLevel)  { showPasteAlert('Error: Select Care Level in Step 1.', 'error'); return; }
+        if (!shopValue)  { showPasteAlert('Error: Select "Add to Shop?" in Step 1.', 'error'); return; }
+        if (!rawJson)    { showPasteAlert('Error: Paste ChatGPT JSON above.', 'error'); return; }
+        if (!plantId)    { showPasteAlert('Error: Plant ID is missing - it should auto-fill when you paste the JSON.', 'error'); return; }
+        if (!/^[a-z0-9-]+$/.test(plantId) || plantId.startsWith('-') || plantId.endsWith('-')) {
+            showPasteAlert('Error: Plant ID must be lowercase with hyphens only (e.g., pink-princess).', 'error');
+            return;
+        }
+
+        let data;
+        try {
+            const cleaned = rawJson.replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'').trim();
+            data = JSON.parse(cleaned);
+        } catch (e) {
+            showPasteAlert('Error: Could not parse JSON - make sure you pasted the raw JSON only. Error: ' + e.message, 'error');
+            return;
+        }
+
+        const plantType    = (data.plant_type    || '').trim();
+        const description  = (data.description   || '').trim();
+        const watering     = (data.watering       || '').trim();
+        const light        = (data.light          || '').trim();
+        const soil         = (data.soil           || '').trim();
+        const propagation  = (data.propagation    || '').trim();
+
+        if (!description) { showPasteAlert('Error: JSON is missing "description". Check the ChatGPT output.', 'error'); return; }
+        if (!watering) { showPasteAlert('Error: JSON is missing "watering". Check the ChatGPT output.', 'error'); return; }
+        if (!light) { showPasteAlert('Error: JSON is missing "light". Check the ChatGPT output.', 'error'); return; }
+        if (!soil) { showPasteAlert('Error: JSON is missing "soil". Check the ChatGPT output.', 'error'); return; }
+        if (!propagation) { showPasteAlert('Error: JSON is missing "propagation". Check the ChatGPT output.', 'error'); return; }
+        if (description.length > 150) { showPasteAlert('Error: Description is over 150 characters - edit the JSON and shorten it before pasting again.', 'error'); return; }
+
+        const priceFmt     = price.startsWith('$')     ? price     : '$' + price;
+        const salePriceFmt = salePrice ? (salePrice.startsWith('$') ? salePrice : '$' + salePrice) : '';
+
+        hideAllSteps();
+
+        // Step 1
+        document.getElementById('step1Code').textContent = `'${plantId}',`;
+        document.getElementById('step1').style.display = 'block';
+
+        // Step 2 (shop only)
+        if (isShop) {
+            document.getElementById('step2Code').textContent =
+`<li class="plant-card">
+    <img src="assets/plants/${plantId}/1.jpg" alt="${plantName}">
+    <div class="card-content">
+        <h3>${plantName}</h3>${plantType ? `\n        <p class="card-type">${plantType}</p>` : ''}
+        <p class="card-description">${description}</p>
+        <div class="card-footer">
+            <span class="plant-price" id="price-${plantId}">$0.00</span>
+            <a href="plants/${plantId}.html" class="view-link">View Plant</a>
+        </div>
+    </div>
+</li>`;
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        // Step 3
+        document.getElementById('step3Code').textContent = salePriceFmt
+            ? `'${plantId}': { original: '${priceFmt}', sale: '${salePriceFmt}' },`
+            : `'${plantId}': { price: '${priceFmt}' },`;
+        document.getElementById('step3').style.display = 'block';
+
+        // Step 4 (shop only)
+        if (isShop) {
+            const slidesHTML = Array.from({length: photoCount}, (_, i) =>
+                `                            <div class="slide"><img src="../assets/plants/${plantId}/${i+1}.jpg" alt="${plantName}"></div>`
+            ).join('\n');
+
+            const tabDefs = [
+                { label: 'Water', content: watering },
+                { label: 'Light', content: light },
+                { label: 'Soil', content: soil },
+                { label: 'Propagation', content: propagation },
+            ];
+
+            const tabButtons = tabDefs.map((t, i) =>
+                `                            <button class="tab-button${i===0?' active':''}" type="button" onclick="showTab('care-tab-${i}', this)">${t.label}</button>`
+            ).join('\n');
+
+            const tabArticles = tabDefs.map((t, i) =>
+                `                        <article id="care-tab-${i}" class="tab-content product-care-note${i===0?' active':''}"><h3>${t.label}</h3><p>${t.content}</p></article>`
+            ).join('\n');
+
+            document.getElementById('step4Code').textContent =
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="${description}">
+    <title>${plantName} | Monstera Mom</title>
+    <link rel="stylesheet" href="../plants.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Monstera Mom home">
+                <img src="../assets/logo1.png" alt="Monstera Mom Logo" class="logo">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="../care.html" class="nav-link">Care</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#getInTouch" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container product-breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html#plants">Plants</a>
+            <span>/</span>
+            <span>${plantName}</span>
+        </div>
+
+        <section class="section product-section">
+            <div class="container">
+                <div class="product-detail-container">
+                    <div class="product-main-content">
+                        <div class="image-slider" id="imageSlider">
+                            <div class="slider-wrapper" id="sliderWrapper">
+${slidesHTML}
+                            </div>
+                            <button class="nav-arrow prev-arrow" type="button" onclick="changeSlide(-1)" aria-label="Previous image">&#8249;</button>
+                            <button class="nav-arrow next-arrow" type="button" onclick="changeSlide(1)" aria-label="Next image">&#8250;</button>
+                        </div>
+
+                        <div class="care-section product-care-guide">
+                            <div class="product-section-heading">
+                                <p class="section-kicker">Care Guide</p>
+                                <h2>Growing Notes</h2>
+                            </div>
+                            <div class="care-tabs">
+${tabButtons}
+                            </div>
+${tabArticles}
+                        </div>
+                    </div>
+
+                    <aside class="product-sidebar">
+                        <div class="product-info">
+                            <p class="product-type">Plant / ${careLevel}</p>
+                            <h1 class="product-title" id="sidebar-title">${plantName}</h1>
+                            <div class="product-price">${priceFmt}</div>
+                            <div class="availability">In Stock - Multiple sizes and prices available.</div>
+                            <button class="contact-btn" id="contactBtn" type="button">Contact to Buy</button>
+                            <div class="product-details">
+                                <h2>Product Details</h2>
+                                <ul>
+                                    <li><strong>Description:</strong> ${description}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <div data-shared-contact data-contact-id="getInTouch"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <script src="../contact-section.js"><\/script>
+    <script src="../site-animations.js"><\/script>
+    <script src="../product-mobile.js"><\/script>
+    <script src="../plant-prices.js"><\/script>
+    <script src="../product-price-sync.js"><\/script>
+    <script src="../plants.js"><\/script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('contactBtn')?.addEventListener('click', function () {
+                document.getElementById('getInTouch')?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    <\/script>
+</body>
+</html>`;
+            document.getElementById('step4').style.display = 'block';
+        }
+
+        // Step 5
+        const careLines = [
+            `            <li><strong>Water:</strong> ${watering}</li>`,
+            `            <li><strong>Light:</strong> ${light}</li>`,
+            `            <li><strong>Soil:</strong> ${soil}</li>`,
+            `            <li><strong>Propagation:</strong> ${propagation}</li>`,
+        ].join('\n');
+
+        document.getElementById('step5Code').textContent =
+`<div class="care-card" data-care-level="${careLevel.toLowerCase()}">
+    <h3>${plantName}</h3>${plantType ? `\n    <p class="care-type">${plantType}</p>` : ''}
+    <p class="care-level-chip">${careLevel}</p>
+    <div class="care-content">
+        <p>${description}</p>
+        <h4>Care Tips</h4>
+        <ul>
+${careLines}
+        </ul>
+    </div>
+</div>`;
+        document.getElementById('step5').style.display = 'block';
+
+        document.getElementById('emptyState').style.display = 'none';
+        document.getElementById('outputCard').style.display = 'block';
+
+        const msg = isShop
+            ? 'Ready - scroll each box or just hit Copy.'
+            : 'Ready (care-guide only - Steps 2 & 4 skipped).';
+        document.getElementById('alertBox').innerHTML = `<div class="alert alert-success">${msg}</div>`;
+    }
+</script>
+</body>
+</html>
+
+
