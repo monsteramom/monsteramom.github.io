@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A smaller Pink Princess option for shelves, starter collections, and bright windows.">
+    <title>Pink Princess (small) | Monstera Mom</title>
+    <link rel="stylesheet" href="../plants.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Monstera Mom home">
+                <img src="../assets/logo1.png" alt="Monstera Mom Logo" class="logo">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="../care.html" class="nav-link">Care</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#getInTouch" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container product-breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html#plants">Plants</a>
+            <span>/</span>
+            <span>Pink Princess (small)</span>
+        </div>
+
+        <section class="section product-section">
+            <div class="container">
+                <div class="product-detail-container">
+                    <div class="product-main-content">
+                        <div class="image-slider" id="imageSlider">
+                            <div class="slider-wrapper" id="sliderWrapper">
+                            <div class="slide"><img src="../assets/plants/pink-small/1.jpg" alt="Pink Princess (small)"></div>
+                            <div class="slide"><img src="../assets/plants/pink-small/2.jpg" alt="Pink Princess (small)"></div>
+                            <div class="slide"><img src="../assets/plants/pink-small/3.jpg" alt="Pink Princess (small)"></div>
+                            <div class="slide"><img src="../assets/plants/pink-small/4.jpg" alt="Pink Princess (small)"></div>
+                            <div class="slide"><img src="../assets/plants/pink-small/5.jpg" alt="Pink Princess (small)"></div>
+                            </div>
+                            <button class="nav-arrow prev-arrow" type="button" onclick="changeSlide(-1)" aria-label="Previous image">&#8249;</button>
+                            <button class="nav-arrow next-arrow" type="button" onclick="changeSlide(1)" aria-label="Next image">&#8250;</button>
+                        </div>
+
+                        <div class="care-section product-care-guide">
+                            <div class="product-section-heading">
+                                <p class="section-kicker">Care Guide</p>
+                                <h2>Growing Notes</h2>
+                            </div>
+                            <div class="care-tabs">
+                            <button class="tab-button active" type="button" onclick="showTab('care-tab-0', this)">Water</button>
+                            <button class="tab-button " type="button" onclick="showTab('care-tab-1', this)">Light</button>
+                            <button class="tab-button " type="button" onclick="showTab('care-tab-2', this)">Soil</button>
+                            <button class="tab-button " type="button" onclick="showTab('care-tab-3', this)">Propagation</button>
+                            </div>
+                        <article id="care-tab-0" class="tab-content product-care-note active"><h3>Water</h3><p>Small pots dry faster, so check soil regularly and water only after partial dry-down.</p></article>
+                        <article id="care-tab-1" class="tab-content product-care-note "><h3>Light</h3><p>Bright indirect light gives the best chance of attractive variegation.</p></article>
+                        <article id="care-tab-2" class="tab-content product-care-note "><h3>Soil</h3><p>Use a small-pot aroid mix that drains fast and does not compact.</p></article>
+                        <article id="care-tab-3" class="tab-content product-care-note "><h3>Propagation</h3><p>Allow the plant to size up before taking cuttings.</p></article>
+                        </div>
+                    </div>
+
+                    <aside class="product-sidebar">
+                        <div class="product-info">
+                            <p class="product-type">Plant / Collector</p>
+                            <h1 class="product-title" id="sidebar-title">Pink Princess (small)</h1>
+                            <div class="product-price">$17.49</div>
+                            <div class="availability">In Stock - Small sale plants available.</div>
+                            <button class="contact-btn" id="contactBtn" type="button">Contact to Buy</button>
+                            <div class="product-details">
+                                <h2>Product Details</h2>
+                                <ul>
+                                <li><strong>Description:</strong> Small variegated philodendron with pink splashes.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <div data-shared-contact data-contact-id="getInTouch"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <script src="../contact-section.js"></script>
+    <script src="../site-animations.js"></script>
+    <script src="../product-mobile.js"></script>
+    <script src="../plant-prices.js"></script>
+    <script src="../product-price-sync.js"></script>
+    <script src="../plants.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('contactBtn')?.addEventListener('click', function () {
+                document.getElementById('getInTouch')?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
+

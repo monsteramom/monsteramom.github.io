@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A dramatic variegated Alocasia that wants warmth, consistency, and fast drainage.">
+    <title>Alocasia Macrorrhiza Splash | Monstera Mom</title>
+    <link rel="stylesheet" href="../plants.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Monstera Mom home">
+                <img src="../assets/logo1.png" alt="Monstera Mom Logo" class="logo">
+                <span class="brand-text">Monstera Mom</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#plants" class="nav-link">Plants</a></li>
+                <li><a href="../care.html" class="nav-link">Care</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#getInTouch" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container product-breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html#plants">Plants</a>
+            <span>/</span>
+            <span>Alocasia Macrorrhiza Splash</span>
+        </div>
+
+        <section class="section product-section">
+            <div class="container">
+                <div class="product-detail-container">
+                    <div class="product-main-content">
+                        <div class="image-slider" id="imageSlider">
+                            <div class="slider-wrapper" id="sliderWrapper">
+                            <div class="slide"><img src="../assets/plants/splash/1.jpg" alt="Alocasia Macrorrhiza Splash"></div>
+                            <div class="slide"><img src="../assets/plants/splash/2.jpg" alt="Alocasia Macrorrhiza Splash"></div>
+                            <div class="slide"><img src="../assets/plants/splash/3.jpg" alt="Alocasia Macrorrhiza Splash"></div>
+                            <div class="slide"><img src="../assets/plants/splash/4.jpg" alt="Alocasia Macrorrhiza Splash"></div>
+                            <div class="slide"><img src="../assets/plants/splash/5.jpg" alt="Alocasia Macrorrhiza Splash"></div>
+                            </div>
+                            <button class="nav-arrow prev-arrow" type="button" onclick="changeSlide(-1)" aria-label="Previous image">&#8249;</button>
+                            <button class="nav-arrow next-arrow" type="button" onclick="changeSlide(1)" aria-label="Next image">&#8250;</button>
+                        </div>
+
+                        <div class="care-section product-care-guide">
+                            <div class="product-section-heading">
+                                <p class="section-kicker">Care Guide</p>
+                                <h2>Growing Notes</h2>
+                            </div>
+                            <div class="care-tabs">
+                            <button class="tab-button active" type="button" onclick="showTab('care-tab-0', this)">Water</button>
+                            <button class="tab-button " type="button" onclick="showTab('care-tab-1', this)">Light</button>
+                            <button class="tab-button " type="button" onclick="showTab('care-tab-2', this)">Soil</button>
+                            <button class="tab-button " type="button" onclick="showTab('care-tab-3', this)">Propagation</button>
+                            </div>
+                        <article id="care-tab-0" class="tab-content product-care-note active"><h3>Water</h3><p>Keep evenly moist but never soggy. Let the top 20 to 30 percent dry.</p></article>
+                        <article id="care-tab-1" class="tab-content product-care-note "><h3>Light</h3><p>Bright indirect light and gentle morning sun are useful. Low light reduces variegation.</p></article>
+                        <article id="care-tab-2" class="tab-content product-care-note "><h3>Soil</h3><p>Very chunky, fast-draining mix with bark, perlite, and coco chips.</p></article>
+                        <article id="care-tab-3" class="tab-content product-care-note "><h3>Propagation</h3><p>Propagate by division or corms. Variegation is genetic but not guaranteed.</p></article>
+                        </div>
+                    </div>
+
+                    <aside class="product-sidebar">
+                        <div class="product-info">
+                            <p class="product-type">Plant / Collector</p>
+                            <h1 class="product-title" id="sidebar-title">Alocasia Macrorrhiza Splash</h1>
+                            <div class="product-price">$19.99 - $39.99</div>
+                            <div class="availability">In Stock - Collector care recommended.</div>
+                            <button class="contact-btn" id="contactBtn" type="button">Contact to Buy</button>
+                            <div class="product-details">
+                                <h2>Product Details</h2>
+                                <ul>
+                                <li><strong>Description:</strong> Large Alocasia with white splash variegation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <div data-shared-contact data-contact-id="getInTouch"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Monstera Mom. All rights reserved.</p>
+    </footer>
+
+    <script src="../contact-section.js"></script>
+    <script src="../site-animations.js"></script>
+    <script src="../product-mobile.js"></script>
+    <script src="../plant-prices.js"></script>
+    <script src="../product-price-sync.js"></script>
+    <script src="../plants.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('contactBtn')?.addEventListener('click', function () {
+                document.getElementById('getInTouch')?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
+
