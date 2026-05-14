@@ -1,7 +1,9 @@
 /* PLANT MARKETPLACE - COMPLETE IMPROVED STYLESHEET */
-/* âœ… Fixed navigation spacing + all original styles */
+/* Fixed navigation spacing + all original styles */
 
 :root {
+    color-scheme: light;
+
     /* Primitive Color Tokens */
     --color-white: rgba(255, 255, 255, 1);
     --color-black: rgba(0, 0, 0, 1);
@@ -154,6 +156,7 @@
 }
 
 html {
+    color-scheme: light;
     font-size: var(--font-size-base);
     font-family: var(--font-family-base);
     line-height: var(--line-height-normal);
@@ -320,6 +323,7 @@ pre {
 
 /* Form Elements */
 .form-control {
+    color-scheme: light;
     display: block;
     width: 100%;
     padding: var(--space-8) var(--space-12);
@@ -575,7 +579,7 @@ select.form-control {
 }
 
     .loading-indicator::before {
-        content: 'ðŸŒ±';
+        content: 'Ã°Å¸Å’Â±';
         display: block;
         font-size: 3rem;
         margin-bottom: 1rem;
@@ -597,7 +601,7 @@ select.form-control {
     text-align: center;
 }
 
-/* ðŸ”§ IMPROVED NAVIGATION - FIXED SPACING */
+/* Ã°Å¸â€Â§ IMPROVED NAVIGATION - FIXED SPACING */
 .navbar {
     position: fixed;
     top: 0;
@@ -1458,47 +1462,7 @@ select.form-control {
     }
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        /* Dark Mode Colors */
-        --color-background: var(--color-charcoal-700);
-        --color-surface: var(--color-charcoal-800);
-        --color-text: var(--color-gray-200);
-        --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-        --color-primary: var(--color-teal-300);
-        --color-primary-hover: var(--color-teal-400);
-        --color-primary-active: var(--color-teal-800);
-        --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-        --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-        --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-        --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-        --color-btn-primary-text: var(--color-slate-900);
-        --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
-        --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-        --color-error: var(--color-red-400);
-        --color-success: var(--color-teal-300);
-        --color-warning: var(--color-orange-400);
-        --color-info: var(--color-gray-300);
-        --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-        --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-        --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-        --color-success-rgb: var(--color-teal-300-rgb);
-        --color-error-rgb: var(--color-red-400-rgb);
-        --color-warning-rgb: var(--color-orange-400-rgb);
-        --color-info-rgb: var(--color-gray-300-rgb);
-        --color-primary-rgb: 50, 184, 198;
-    }
-
-    select.form-control {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-        color: var(--color-gray-200);
-    }
-
-    .nav-link:hover {
-        background: rgba(50, 184, 198, 0.1);
-    }
-}
+/* Keep the public site in the light Monstera Mom theme even on devices set to dark mode. */
 
 [data-color-scheme="dark"] {
     /* Manual dark mode override */
@@ -2888,6 +2852,7 @@ img {
 
 .control-field input,
 .control-field select {
+    color-scheme: light;
     background: var(--color-background);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-base);
