@@ -20,6 +20,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 let currentPlantCategory = 'all';
 const ADMIN_SEARCH_TERM = 'add';
 const ADMIN_FORM_PATH = 'mm-plant-workbench.html';
+const CONTACT_URL = 'https://instagram.com/monstera.mom25';
 
 function maybeOpenAdminForm(value) {
     if ((value || '').trim().toLowerCase() !== ADMIN_SEARCH_TERM) return false;
@@ -115,10 +116,8 @@ function initPlantControls() {
 
 // ===== CONTACT FOR PLANT =====
 function contactForPlant(plantName, price) {
-    const email = 'plants@example.com'; // UPDATE: replace with your email address
-    const subject = `Inquiry about ${plantName}`;
-    const body = `Hi,\n\nI'm interested in purchasing:\n\nPlant: ${plantName}\nPrice: ${price}\n\nPlease let me know availability and ordering details.\n\nThanks!`;
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(CONTACT_URL, '_blank', 'noopener');
+    showSuccessMessage(`Message Monstera Mom on Instagram about ${plantName} (${price}).`);
 }
 
 // ===== CONTACT FORM =====
@@ -130,11 +129,9 @@ if (contactForm) {
         const email = document.getElementById('email').value;
         const plant = document.getElementById('plant').value;
         const message = document.getElementById('message').value;
-        const toEmail = 'plants@example.com'; // UPDATE: replace with your email address
-        const subject = `New Plant Store Inquiry from ${name}`;
-        const body = `New Contact Form Submission:\n\nName: ${name}\nEmail: ${email}\nPlant Interested: ${plant || 'Not specified'}\n\nMessage:\n${message}`;
-        window.location.href = `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        showSuccessMessage('Message sent! Your email client will open.');
+        const details = [name, email, plant, message].filter(Boolean).join(' - ');
+        window.open(CONTACT_URL, '_blank', 'noopener');
+        showSuccessMessage(details ? 'Message Monstera Mom on Instagram with your inquiry details.' : 'Message Monstera Mom on Instagram.');
         this.reset();
     });
 }
@@ -199,3 +196,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
